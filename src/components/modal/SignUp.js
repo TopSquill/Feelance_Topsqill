@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import { axiosClient } from "../../utills/axiosClient";
+import ErrorMsg from "../ErrorMsg";
+import SuccessMsg from "../SuccessMsg";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [isError, setIsError] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleSubmit = async (e) => {
     try {
+      e.preventDefault();
       const result = await axiosClient.post(
         "http://localhost:8000/users/signup",
         {
@@ -22,8 +30,13 @@ const SignUp = () => {
       );
 
       console.log(result);
+      setSuccessMessage(result.response.data.message);
+      setIsCorrect(true);
     } catch (error) {
-      console.log(error);
+      setIsError(true);
+
+      console.log(error.response.data.message);
+      setErrorMessage(error.response.data.message);
     }
   };
 
@@ -50,6 +63,8 @@ const SignUp = () => {
               />
             </div>
             <div className="modal-body">
+              {isError ? <ErrorMsg msg={errorMessage} /> : ""}
+              {isCorrect ? <SuccessMsg msg={successMessage} /> : ""}
               <form>
                 <div className="mb-3">
                   <label htmlFor="recipient-name" className="col-form-label">

@@ -1,8 +1,10 @@
 import "./App.css";
+import ErrorMsg from "./components/ErrorMsg";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./components/pages/Home";
-import SignUp from "./components/pages/SignUp";
+
+import SuccessMsg from "./components/SuccessMsg";
 
 function App() {
   return (
@@ -10,8 +12,10 @@ function App() {
       <Navbar />
 
       <Home />
-      {/* <SignUp /> */}
+
       <Footer />
+      {/* <ErrorMsg />
+      <SuccessMsg /> */}
     </>
   );
 }
