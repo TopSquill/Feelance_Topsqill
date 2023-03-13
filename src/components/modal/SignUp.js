@@ -21,6 +21,7 @@ const SignUp = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <div
@@ -109,7 +110,7 @@ const SignUp = () => {
                   //   data-bs-target="#exampleModalToggle"
                   // data-bs-toggle="modal"
                   // data-bs-dismiss="modal"
-                  onClick={handleSubmit}
+                  onSubmit={handleSubmit}
                 >
                   Sign Up
                 </button>
