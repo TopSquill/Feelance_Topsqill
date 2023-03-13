@@ -9,13 +9,18 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const result = await axiosClient.post("/auth/signup", {
-        name,
-        email,
-        password,
-        userType,
-      });
+      const result = await axiosClient.post(
+        "http://localhost:8000/users/signup",
+        {
+          name,
+          email,
+          password,
+          userType,
+        }
+      );
+
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -62,7 +67,7 @@ const SignUp = () => {
                     Email
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     className="form-control"
                     id="recipient-email"
                     onChange={(e) => setEmail(e.target.value)}
@@ -105,15 +110,15 @@ const SignUp = () => {
                 </button>
               </div>
               <div>
-                <button
+                <input
+                  type="submit"
                   className="btn btn-primary"
                   //   data-bs-target="#exampleModalToggle"
                   // data-bs-toggle="modal"
                   // data-bs-dismiss="modal"
-                  onSubmit={handleSubmit}
-                >
-                  Sign Up
-                </button>
+                  onClick={handleSubmit}
+                  value="Sign Up"
+                />
               </div>
             </div>
           </div>
