@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { axiosClient } from "../../utills/axiosClient";
+import { KEY_ACCESS_TOKEN, setItem } from "../../utills/localStorageManeger";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const result = await axiosClient.post(
+        "http://localhost:8000/users/login",
+        {
+          email,
+          password,
+        }
+      );
+      console.log(result);
+      //setItem(KEY_ACCESS_TOKEN, result.accessToken);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div
@@ -33,6 +55,7 @@ const Login = () => {
                     type="text"
                     className="form-control"
                     id="recipient-email"
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
@@ -43,6 +66,7 @@ const Login = () => {
                     type="text"
                     className="form-control"
                     id="recipient-password"
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </form>
@@ -60,14 +84,15 @@ const Login = () => {
                 </button>
               </div>
               <div>
-                <button
+                <input
+                  type="submit"
                   className="btn btn-primary"
                   data-bs-target="#exampleModalToggle"
                   // data-bs-toggle="modal"
                   data-bs-dismiss="modal"
-                >
-                  Login
-                </button>
+                  value="LogIn"
+                  onClick={handleSubmit}
+                />
               </div>
             </div>
           </div>
