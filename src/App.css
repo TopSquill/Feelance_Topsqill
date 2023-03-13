@@ -24,6 +24,12 @@
   color: white;
 }
 
+
+
+.modal-backdrop{
+z-index: 999;
+}
+
 .App-link {
   color: #61dafb;
 }
