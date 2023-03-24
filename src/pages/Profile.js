@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./updateProfile.css";
 
 const Profile = () => {
   return (
     <>
-      <div className="container">
+      <div className="container pt-20">
         <div className="main-body">
           {/* Breadcrumb */}
           <nav aria-label="breadcrumb" className="main-breadcrumb">
@@ -40,8 +41,8 @@ const Profile = () => {
                       <p className="text-muted font-size-sm">
                         Bay Area, San Francisco, CA
                       </p>
-                      <button className="btn btn-primary">Follow</button>
-                      <button className="btn btn-outline-primary">
+                      <button className="btn btn-primary m-2">Follow</button>
+                      <button className="btn btn-outline-primary m-2">
                         Message
                       </button>
                     </div>
@@ -212,13 +213,9 @@ const Profile = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-12">
-                      <a
-                        className="btn btn-info "
-                        target="__blank"
-                        href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
-                      >
+                      <Link className="btn btn-info " to="/update-profile">
                         Edit
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

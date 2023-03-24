@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark fixed-top fw-bold">
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark fixed-top fw-bold pr-20">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Topsqil
@@ -25,7 +25,7 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
+              <li className="nav-item ms-3">
                 <Link className="nav-link text-light" to="/">
                   Home
                 </Link>

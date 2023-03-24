@@ -14,22 +14,10 @@ const UserSection = () => {
   return (
     <>
       <div className="container dropdown-center">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDarkDropdown"
-          aria-controls="navbarNavDarkDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <div className=" navbar-collapse" id="navbarNavDarkDropdown">
           <ul
-            className="navbar-nav dropdown-center"
+            className="navbar-nav dropdown-center "
             style={{
-              textDecoration: "none",
               cursor: "pointer",
               color: "white",
             }}
@@ -46,27 +34,23 @@ const UserSection = () => {
               <ul className="dropdown-menu dropdown-menu-dark">
                 <li>
                   <span className="dropdown-item" onClick={logOut}>
-                    Logout
-                    <i className="bi bi-box-arrow-right "></i>
+                    <span className="h6 title text-light">Logout</span>
+                    <i className="bi bi-box-arrow-right pl-5 text-light"></i>
                   </span>
                 </li>
                 <li>
                   <span className="dropdown-item">
-                    <Link
-                      to="/update-profile"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="h6 title">Update Profile</span>
+                    <Link to="/update-profile">
+                      <span className="h6 title text-light">
+                        Update Profile
+                      </span>
                     </Link>
                   </span>
                 </li>
                 <li>
                   <span className="dropdown-item">
-                    <Link
-                      to="/profile"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="h6 title">Profile</span>
+                    <Link to="/profile">
+                      <span className="h6 title text-light">Profile</span>
                     </Link>
                   </span>
                 </li>
