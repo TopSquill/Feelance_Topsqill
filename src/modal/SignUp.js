@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { axiosClient } from "../../utills/axiosClient";
-import ErrorMsg from "../ErrorMsg";
-import SuccessMsg from "../SuccessMsg";
+import { axiosClient } from "../utills/axiosClient";
+import ErrorMsg from "../components/ErrorMsg";
+import SuccessMsg from "../components/SuccessMsg";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("");
 
@@ -19,24 +18,25 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const result = await axiosClient.post(
-        "http://localhost:8000/users/signup",
-        {
-          name,
-          email,
-          password,
-          userType,
-        }
-      );
+      const result = await axiosClient.post("/users/signup", {
+        name,
+        email,
+        password,
+        userType,
+      });
 
       console.log(result);
-      setSuccessMessage(result.response.data.message);
-      setIsCorrect(true);
-    } catch (error) {
-      setIsError(true);
+      setSuccessMessage(
+        "Signed Up Successfully! Verfication mail has been send to your mailbox!"
+      );
 
-      console.log(error.response.data.message);
-      setErrorMessage(error.response.data.message);
+      setIsCorrect(true);
+      setIsError(false);
+    } catch (err) {
+      setIsError(true);
+      setIsCorrect(false);
+      console.log(err.response.data.message);
+      setErrorMessage(err.response.data.message);
     }
   };
 
@@ -84,7 +84,7 @@ const SignUp = () => {
                   <input
                     type="email"
                     className="form-control"
-                    id="recipient-email"
+                    id="recipient-emails"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
@@ -95,7 +95,7 @@ const SignUp = () => {
                   <input
                     type="password"
                     className="form-control"
-                    id="recipient-password"
+                    id="recipient-passwords"
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>

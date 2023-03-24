@@ -4,7 +4,7 @@ const SuccessMsg = ({ msg }) => {
   return (
     <>
       <div className="container">
-        <div class="alert alert-success" role="alert">
+        <div className="alert alert-success" role="alert">
           {msg}
         </div>
       </div>

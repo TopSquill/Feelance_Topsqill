@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { axiosClient } from "../../utills/axiosClient";
-import { KEY_ACCESS_TOKEN, setItem } from "../../utills/localStorageManeger";
-import ErrorMsg from "../ErrorMsg";
-import SuccessMsg from "../SuccessMsg";
+import { axiosClient } from "../utills/axiosClient";
+import { KEY_ACCESS_TOKEN, setItem } from "../utills/localStorageManeger";
+import ErrorMsg from "../components/ErrorMsg";
+import SuccessMsg from "../components/SuccessMsg";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,24 +15,30 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const result = await axiosClient.post(
-        "http://localhost:8000/users/login",
-        {
-          email,
-          password,
-        }
-      );
+      const result = await axiosClient.post("/users/login", {
+        email,
+        password,
+      });
+
       console.log(result);
-      //setItem(KEY_ACCESS_TOKEN, result.accessToken);
-      setSuccessMessage(result.response.data.message);
+      setItem(KEY_ACCESS_TOKEN, result.data.token);
+      window.location.replace("/", "_self");
+
+      setSuccessMessage("Email Verified");
+
       setIsCorrect(true);
+      setIsError(false);
     } catch (error) {
       setIsError(true);
+      setIsCorrect(false);
 
-      console.log(error.response.data.message);
+      console.log(error);
       setErrorMessage(error.response.data.message);
     }
   };
@@ -46,8 +53,9 @@ const Login = () => {
           email,
         }
       );
-      console.log(result.data.message);
-      //setItem(KEY_ACCESS_TOKEN, result.accessToken);
+      // console.log(result.data.message);
+      console.log(result);
+      // setItem(KEY_ACCESS_TOKEN, result.token);
       setSuccessMessage(result.data.message);
       setIsCorrect(true);
       setIsError(false);
@@ -56,7 +64,7 @@ const Login = () => {
       setIsCorrect(false);
       console.log(error);
       // console.log(error.response.data.message);
-      // setErrorMessage(error.response.data.message);
+      setErrorMessage(error.response.data.message);
     }
   };
   return (
@@ -84,7 +92,8 @@ const Login = () => {
             <div className="modal-body">
               {isError ? <ErrorMsg msg={errorMessage} /> : ""}
               {isCorrect ? <SuccessMsg msg={successMessage} /> : ""}
-              {errorMessage === "Email not verified" ? (
+              {errorMessage === "Email not verified" ||
+              errorMessage === "User does not exist" ? (
                 <form>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
@@ -95,7 +104,7 @@ const Login = () => {
                       className="form-control"
                       id="recipient-email"
                       placeholder="Resend Verification Mail"
-                      onChange={(e) => setEmail(e.target.value)}
+                      disabled
                     />
                   </div>
                 </form>
@@ -127,7 +136,8 @@ const Login = () => {
               )}
             </div>
             <div className="modal-footer">
-              {errorMessage === "Email not verified" ? (
+              {errorMessage === "Email not verified" ||
+              errorMessage === "User does not exist" ? (
                 <div>
                   <input
                     type="submit"
@@ -135,7 +145,7 @@ const Login = () => {
                     // data-bs-target="#exampleModalToggle"
                     // data-bs-toggle="modal"
                     // data-bs-dismiss="modal"
-                    value="Send"
+                    value="Resend Email"
                     onClick={resendMail}
                   />
                 </div>

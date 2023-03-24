@@ -4,7 +4,7 @@ const ErrorMsg = ({ msg }) => {
   return (
     <>
       <div className="container">
-        <div class="alert alert-danger" role="alert">
+        <div className="alert alert-danger" role="alert">
           {msg}
         </div>
       </div>

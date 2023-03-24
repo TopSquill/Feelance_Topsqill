@@ -1,14 +1,20 @@
 import React from "react";
-import Accounts from "./modal/Accounts";
+import Accounts from "../modal/Accounts";
+import UserProfile from "../modal/UserProfile";
+import UserSection from "../modal/UserSection";
+import { getItem, KEY_ACCESS_TOKEN } from "../utills/localStorageManeger";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const user = getItem(KEY_ACCESS_TOKEN);
+
   return (
     <>
-      <nav className="navbar navbar-expand-sm bg-primary navbar-dark fixed-top fw-bold">
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark fixed-top fw-bold">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Topsqil
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -20,43 +26,50 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link text-light" href="#">
+                <Link className="nav-link text-light" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link text-light " href="#">
+                <Link className="nav-link text-light " to="/freelancer">
                   Freelancer
-                </a>
+                </Link>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link text-light" href="#">
+                <Link className="nav-link text-light" to="/vendor">
                   Vendor
-                </a>
+                </Link>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link text-light" href="#">
+                <Link className="nav-link text-light" to="/client">
                   Client
-                </a>
+                </Link>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link text-light" href="#">
+                <Link className="nav-link text-light" to="/find-work">
                   Find Work
-                </a>
+                </Link>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link text-light" href="#">
+                <Link className="nav-link text-light" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link text-light" href="#">
+                <Link className="nav-link text-light" to="/contact">
                   Contact
-                </a>
+                </Link>
               </li>
-              <li className="nav-item ms-3">
-                <Accounts />
-              </li>
+
+              {user ? (
+                <li className="nav-item ms-3">
+                  <UserSection />
+                </li>
+              ) : (
+                <li className="nav-item ms-3">
+                  <Accounts />
+                </li>
+              )}
             </ul>
           </div>
         </div>
