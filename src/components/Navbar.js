@@ -1,12 +1,14 @@
 import React from "react";
 import Accounts from "../modal/Accounts";
 import UserProfile from "../modal/UserProfile";
-import UserSection from "../modal/UserSection";
+import UserSection from "./UserSection";
 import { getItem, KEY_ACCESS_TOKEN } from "../utills/localStorageManeger";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const user = getItem(KEY_ACCESS_TOKEN);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -50,15 +52,14 @@ const Navbar = () => {
                   Find Work
                 </Link>
               </li>
-              <li className="nav-item ms-3">
-                <Link className="nav-link text-light" to="/about">
-                  About
-                </Link>
+              <li className="nav-item ms-3" onClick={() => navigate("/about")}>
+                <span className="nav-link text-light">About</span>
               </li>
-              <li className="nav-item ms-3">
-                <Link className="nav-link text-light" to="/contact">
-                  Contact
-                </Link>
+              <li
+                className="nav-item ms-3"
+                onClick={() => navigate("/contact")}
+              >
+                <span className="nav-link text-light">Contact</span>
               </li>
 
               {user ? (

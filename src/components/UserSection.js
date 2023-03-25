@@ -38,15 +38,7 @@ const UserSection = () => {
                     <i className="bi bi-box-arrow-right pl-5 text-light"></i>
                   </span>
                 </li>
-                <li>
-                  <span className="dropdown-item">
-                    <Link to="/update-profile">
-                      <span className="h6 title text-light">
-                        Update Profile
-                      </span>
-                    </Link>
-                  </span>
-                </li>
+                <li></li>
                 <li>
                   <span className="dropdown-item">
                     <Link to="/profile">

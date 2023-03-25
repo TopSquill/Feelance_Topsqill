@@ -1,357 +1,177 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./updateProfile.css";
+import { Link, useNavigate } from "react-router-dom";
+import "./profile.css";
 
 const Profile = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="container pt-20">
-        <div className="main-body">
-          {/* Breadcrumb */}
-          <nav aria-label="breadcrumb" className="main-breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <a href="index.html">Home</a>
-              </li>
-              <li className="breadcrumb-item">
-                <a href="javascript:void(0)">User</a>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                User Profile
-              </li>
-            </ol>
-          </nav>
-          {/* /Breadcrumb */}
-          <div className="row gutters-sm">
-            <div className="col-md-4 mb-3">
+      <section className="h-100 gradient-custom-2">
+        <div className="container-fluid py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col col-lg-9 col-xl-10">
               <div className="card">
-                <div className="card-body">
-                  <div className="d-flex flex-column align-items-center text-center">
+                <div
+                  className="rounded-top text-white d-flex flex-row"
+                  style={{ backgroundColor: "#000", height: 200 }}
+                >
+                  <div
+                    className="ms-4 mt-5 d-flex flex-column"
+                    style={{ width: 150 }}
+                  >
                     <img
-                      src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                      alt="Admin"
-                      className="rounded-circle"
-                      width={150}
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                      alt="Generic placeholder image"
+                      className="img-fluid img-thumbnail mt-4 mb-2"
+                      style={{ width: 150, zIndex: 1 }}
                     />
-                    <div className="mt-3">
-                      <h4>John Doe</h4>
-                      <p className="text-secondary mb-1">
-                        Full Stack Developer
-                      </p>
-                      <p className="text-muted font-size-sm">
-                        Bay Area, San Francisco, CA
-                      </p>
-                      <button className="btn btn-primary m-2">Follow</button>
-                      <button className="btn btn-outline-primary m-2">
-                        Message
-                      </button>
-                    </div>
+                    <button
+                      type="button"
+                      className="btn btn-outline-dark"
+                      data-mdb-ripple-color="dark"
+                      style={{ zIndex: 1 }}
+                      onClick={() => navigate("/update-profile")}
+                    >
+                      Edit profile
+                    </button>
+                  </div>
+                  <div className="ms-3" style={{ marginTop: 130 }}>
+                    <h5>Andy Horwitz</h5>
+                    <p>New York</p>
                   </div>
                 </div>
-              </div>
-              <div className="card mt-3">
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-globe mr-2 icon-inline"
-                      >
-                        <circle cx={12} cy={12} r={10} />
-                        <line x1={2} y1={12} x2={22} y2={12} />
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                      </svg>
-                      Website
-                    </h6>
-                    <span className="text-secondary">https://bootdey.com</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-github mr-2 icon-inline"
-                      >
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                      </svg>
-                      Github
-                    </h6>
-                    <span className="text-secondary">bootdey</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-twitter mr-2 icon-inline text-info"
-                      >
-                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                      </svg>
-                      Twitter
-                    </h6>
-                    <span className="text-secondary">@bootdey</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-instagram mr-2 icon-inline text-danger"
-                      >
-                        <rect
-                          x={2}
-                          y={2}
-                          width={20}
-                          height={20}
-                          rx={5}
-                          ry={5}
-                        />
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                      </svg>
-                      Instagram
-                    </h6>
-                    <span className="text-secondary">bootdey</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-facebook mr-2 icon-inline text-primary"
-                      >
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                      </svg>
-                      Facebook
-                    </h6>
-                    <span className="text-secondary">bootdey</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-md-8">
-              <div className="card mb-3">
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Full Name</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      Kenneth Valdez
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Email</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">fip@jukmuh.al</div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Phone</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      (239) 816-9029
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Mobile</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      (320) 380-4539
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Address</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <Link className="btn btn-info " to="/update-profile">
-                        Edit
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row gutters-sm">
-                <div className="col-sm-6 mb-3">
-                  <div className="card h-100">
-                    <div className="card-body">
-                      <h6 className="d-flex align-items-center mb-3">
-                        <i className="material-icons text-info mr-2">
-                          assignment
-                        </i>
-                        Project Status
-                      </h6>
-                      <small>Web Design</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "80%" }}
-                          aria-valuenow={80}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
+                <div
+                  className="px-4 text-black"
+                  style={{ backgroundColor: "#f8f9fa" }}
+                >
+                  =
+                  <div className="row social">
+                    <div className="d-flex col-sm-6 col-6 justify-content-center text-center pb-2">
+                      <div>
+                        <p className="mb-1  title h5">
+                          <i class="icon bi bi-linkedin"></i>
+                        </p>
+                        <p className="small small-text text-muted mb-0">
+                          LinkedIn
+                        </p>
                       </div>
-                      <small>Website Markup</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "72%" }}
-                          aria-valuenow={72}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
+                      <div className="px-3">
+                        <p className="mb-1  title h5">
+                          <i class="icon bi bi-github"></i>
+                        </p>
+                        <p className="small small-text text-muted mb-0">
+                          GitHub
+                        </p>
                       </div>
-                      <small>One Page</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "89%" }}
-                          aria-valuenow={89}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
+                      <div>
+                        <p className="mb-1  title h5">
+                          <i class="icon bi bi-facebook"></i>
+                        </p>
+                        <p className="small small-text text-muted mb-0">
+                          FaceBook
+                        </p>
                       </div>
-                      <small>Mobile Template</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "55%" }}
-                          aria-valuenow={55}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
+                    </div>
+                    <div className="d-flex col-sm-6 col-6 justify-content-end text-center pb-2">
+                      <div>
+                        <p className="mb-1 title h5">25</p>
+                        <p className="small small-text text-muted mb-0">
+                          Projects
+                        </p>
                       </div>
-                      <small>Backend API</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "66%" }}
-                          aria-valuenow={66}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
+                      <div className="px-3">
+                        <p className="title mb-1 h5">4.5</p>
+                        <p className="small small-text text-muted mb-0">
+                          Rating
+                        </p>
+                      </div>
+                      <div>
+                        <p className="title mb-1 h5">5</p>
+                        <p className="small small-text text-muted mb-0">Jobs</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-sm-6 mb-3">
-                  <div className="card h-100">
-                    <div className="card-body">
-                      <h6 className="d-flex align-items-center mb-3">
-                        <i className="material-icons text-info mr-2">
-                          assignment
-                        </i>
-                        Project Status
-                      </h6>
-                      <small>Web Design</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "80%" }}
-                          aria-valuenow={80}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
+                <div className="card-body p-4 text-black">
+                  <p className="lead fw-normal mb-1">About</p>
+                  <div className="p-3" style={{ backgroundColor: "#f8f9fa" }}>
+                    <div className="row mb-5">
+                      <div className="col-md-6">
+                        <p className="font-italic mb-1">Web Developer</p>
+                        <p className="font-italic mb-1">Lives in New York</p>
+                        <p className="font-italic mb-0">Photographer</p>
                       </div>
-                      <small>Website Markup</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "72%" }}
-                          aria-valuenow={72}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
+                      <div className="col-md-6">
+                        <p className="font-italic mb-1">Skills</p>
                       </div>
-                      <small>One Page</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "89%" }}
-                          aria-valuenow={89}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
-                      </div>
-                      <small>Mobile Template</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "55%" }}
-                          aria-valuenow={55}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
-                      </div>
-                      <small>Backend API</small>
-                      <div className="progress mb-3" style={{ height: 5 }}>
-                        <div
-                          className="progress-bar bg-primary"
-                          role="progressbar"
-                          style={{ width: "66%" }}
-                          aria-valuenow={66}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        />
-                      </div>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center mb-4">
+                    <p className="lead fw-normal mb-0">Projects</p>
+                    <p className="mb-0">
+                      <a href="#!" className="text-muted">
+                        Show all
+                      </a>
+                    </p>
+                  </div>
+                  <div className="row g-2">
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
+                    </div>
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
+                    </div>
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
+                    </div>
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
+                    </div>
+                  </div>
+                  <div className="row g-2">
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
+                    </div>
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
+                    </div>
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
+                    </div>
+                    <div className="col-md-3 col-sm-6 mb-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                        alt="image 1"
+                        className="w-100 rounded-3"
+                      />
                     </div>
                   </div>
                 </div>
@@ -359,7 +179,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
