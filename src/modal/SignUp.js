@@ -99,16 +99,49 @@ const SignUp = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 row">
                   <label htmlFor="recipient-name" className="col-form-label">
-                    UserType
+                    Join as
                   </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="recipient-usertype"
-                    onChange={(e) => setUserType(e.target.value)}
-                  />
+                  <div className="col-sm-4">
+                    <p>
+                      <input
+                        type="radio"
+                        name="usertype"
+                        value="CLIENT"
+                        onChange={(e) => {
+                          setUserType(e.target.value);
+                        }}
+                      ></input>
+                      <span className="px-3">Client</span>
+                    </p>
+                  </div>
+                  <div className="col-sm-4">
+                    <p>
+                      <input
+                        type="radio"
+                        name="usertype"
+                        value="FREELANCER"
+                        onChange={(e) => {
+                          setUserType(e.target.value);
+                        }}
+                      ></input>
+                      <span className="px-3">Freelancer</span>
+                    </p>
+                  </div>
+                  <div className="col-sm-4">
+                    <p>
+                      <input
+                        type="radio"
+                        name="usertype"
+                        value="VENDOR"
+                        onChange={(e) => {
+                          setUserType(e.target.value);
+                        }}
+                      ></input>
+                      <span className="px-3">Vendor</span>
+                    </p>
+                  </div>
                 </div>
               </form>
             </div>
