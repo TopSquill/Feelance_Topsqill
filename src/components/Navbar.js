@@ -52,14 +52,15 @@ const Navbar = () => {
                   Find Work
                 </Link>
               </li>
-              <li className="nav-item ms-3" onClick={() => navigate("/about")}>
-                <span className="nav-link text-light">About</span>
+              <li className="nav-item ms-3">
+                <Link className="nav-link text-light" to="/about">
+                  About
+                </Link>
               </li>
-              <li
-                className="nav-item ms-3"
-                onClick={() => navigate("/contact")}
-              >
-                <span className="nav-link text-light">Contact</span>
+              <li className="nav-item ms-3">
+                <Link className="nav-link text-light" to="/contact">
+                  Contact
+                </Link>
               </li>
 
               {user ? (

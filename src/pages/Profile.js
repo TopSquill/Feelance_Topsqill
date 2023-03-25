@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ProjctCards from "../components/ProjctCards";
 import "./profile.css";
 
 const Profile = () => {
@@ -114,7 +115,7 @@ const Profile = () => {
                       </a>
                     </p>
                   </div>
-                  <div className="row g-2">
+                  {/* <div className="row g-2">
                     <div className="col-md-3 col-sm-6 mb-2">
                       <img
                         src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
@@ -173,7 +174,8 @@ const Profile = () => {
                         className="w-100 rounded-3"
                       />
                     </div>
-                  </div>
+                  </div> */}
+                  <ProjctCards />
                 </div>
               </div>
             </div>
