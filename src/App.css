@@ -34,6 +34,12 @@ z-index: 999;
   color: #61dafb;
 }
 
+.top-100 {top: 100%}
+.bottom-100 {bottom: 100%}
+.max-h-select {
+    max-height: 300px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
